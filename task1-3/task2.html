@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>wg test page</title>
+</head>
+<body>
+<div class="container">
+    <h1>Адаптивный список</h1>
+    <nav class="navigation">
+        <button tabindex="1" class="navigation-toggle" type="button">
+            <img src="assets/svg/menu.svg" alt="menu drop-down">
+        </button>
+        <div class="navigation-wrap" tabindex="2">
+            <a href="/1">World Of Tanks</a>
+            <a class="active" href="/2">World Of Warplanes</a>
+            <a href="/3">World Of Warships</a>
+        </div>
+    </nav>
+</div>
+<script>
+
+    let menuToggle = document.querySelector('.navigation-toggle');
+
+    function f() {
+        let menu = document.querySelector('.navigation');
+        menu.classList.toggle('open');
+    }
+
+    menuToggle.addEventListener('click', f, false)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+.navigation {
+    font-size: 0;
+    position: relative;
+
+    a {
+        padding: 3px 8px;
+        color: #707275;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        text-decoration: none;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &.active {
+            background-color: #707275;
+            border-radius: 5px;
+            color: #eff0f1;
+        }
+
+
+    }
+
+    .navigation-toggle {
+        @include reset-Button;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        text-align: left;
+        height: 32px;
+        box-sizing: border-box;
+        display: none;
+
+        img {
+            background: #fff;
+            padding: 10px;
+        }
+
+        //no js solution
+        //&:focus {
+        //    & + .navigation-wrap {
+        //        z-index: 5;
+        //
+        //        a:not(.active) {
+        //            display: block;
+        //        }
+        //
+        //    }
+        //}
+    }
+
+    @media screen and(max-width: 800px) {
+        max-width: 170px;
+
+        .navigation-toggle {
+            display: block;
+        }
+        .navigation-wrap {
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.04), 0 0 9px rgba(0, 0, 0, 0.12), inset 0 0 0 2px #ffffff;
+            border: 1px solid rgba(200, 200, 200, 0.85);
+            background-color: #ffffff;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+
+            //no js solution
+            //&:focus, &:focus-within {
+            //    z-index: 3;
+            //
+            //    a:not(.active) {
+            //        display: block;
+            //    }
+            //}
+        }
+
+        &.open {
+
+            .navigation-wrap {
+                z-index: 3;
+            }
+
+            a:not(.active) {
+                display: block;
+            }
+
+        }
+
+        a {
+            padding-top: 7px;
+            padding-bottom: 7px;
+            display: block;
+            padding-left: 30px;
+            position: relative;
+            margin: 0;
+
+            &.active {
+                background: transparent url(../images/svg/arrow.svg) no-repeat 10px center;
+                color: #2a2a2a;
+            }
+
+            &:not(.active) {
+                display: none;
+            }
+
+        }
+
+    }
+
+}

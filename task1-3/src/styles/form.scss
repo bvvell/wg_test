@@ -1,0 +1,200 @@
+.search-form {
+    /* clears the 'X' from Internet Explorer */
+    input[type=search]::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    input[type=search]::-ms-reveal {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    /* clears the 'X' from Chrome */
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        display: none;
+    }
+
+    .form-button {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.44), 0 0 7px rgba(0, 0, 0, 0.07),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.48);
+        background-color: #e6e6e6;
+        background-image: linear-gradient(
+                to top,
+                rgba(177, 181, 183, 0.25) 0%,
+                rgba(177, 181, 183, 0) 100%
+        );
+        padding: 14px 18px 14px;
+        border: none;
+        color: #373f45;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -1.2px;
+        line-height: 0.9;
+        transition: box-shadow ease-in-out 0.3s;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.44),
+            0 0 7px rgba(0, 0, 0, 0.07),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.96);
+            background-color: #f7f7f7;
+        }
+    }
+
+    .form-clear-button {
+        @include reset-Button;
+        display: block;
+        height: 18px;
+        width: 18px;
+        position: absolute;
+        right: 11px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        line-height: 0;
+        opacity: 0;
+        transition: opacity ease-in-out 0.3s;
+
+        &:hover {
+            opacity: 0.5;
+        }
+
+        &:focus {
+            outline: none;
+            opacity: 0.5;
+        }
+    }
+
+    .form-field {
+        padding: 11px 30px 10px 40px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(239, 239, 239);
+        border-radius: 3px;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.11),
+        inset 0 2px 6px rgba(0, 0, 0, 0.49);
+        width: 100%;
+        box-sizing: border-box;
+        transition: box-shadow ease-in-out 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: rgb(255, 255, 255);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.11),
+            inset 0 2px 6px rgba(0, 0, 0, 0.69);
+
+            & + .form-clear-button {
+                opacity: 1;
+            }
+        }
+    }
+
+    .form-label {
+        display: block;
+        position: absolute;
+        background: url(../images/svg/search.svg) center center no-repeat;
+        height: 16px;
+        width: 16px;
+        left: 13px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .form-field-wrap {
+        border-radius: 3px;
+        overflow: hidden;
+        position: relative;
+    }
+}
+
+#search-example-1 {
+    .form-row {
+        @include cf;
+    }
+
+    .right {
+        float: right;
+        margin-left: 5px;
+    }
+
+    .left {
+        overflow: hidden;
+    }
+}
+
+#search-example-2 {
+    .search-form {
+        display: table;
+    }
+
+    .form-row {
+        display: table-row;
+    }
+
+    .form-item {
+        vertical-align: top;
+    }
+
+    .left {
+        display: table-cell;
+        width: 100%;
+        padding-right: 5px;
+    }
+
+    .right {
+        display: table-cell;
+    }
+}
+
+#search-example-3 {
+    .form-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .left {
+        flex: 1 1 auto;
+        padding-right: 5px;
+    }
+
+}
+
+#search-example-4 {
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: 1fr;
+        gap: 5px;
+    }
+
+    @media all and (-ms-high-contrast: none) {
+        .form-row {
+            display: -ms-grid;
+            -ms-grid-columns: 1fr auto;
+            -ms-grid-rows: 1fr;
+            grid-column-gap: 5px;
+        }
+        .right {
+            -ms-grid-column: 2;
+        }
+    }
+}
+
+#search-example-5 {
+    table {
+        width: 100%;
+    }
+
+    .left {
+        width: 100%;
+        padding-right: 5px;
+    }
+}
